@@ -12,10 +12,10 @@ function options() {
   var passwordLength = parseInt(window.prompt("How many characters would you like your password to be?"));
   console.log(passwordLength);
   
-  var ifspecialCharacter = window.prompt("Would you like to include special characters?");
-  var ifnumbers = window.prompt("Would you like to include numeric characters?");
-  var ifupperCaseLetters = window.prompt("Would you like to include uppercase characters?");
-  var iflowerCaseLetters = window.prompt("Would you like to include lowercase characters?");
+  var ifspecialCharacter = window.confirm("Would you like to include special characters?");
+  var ifnumbers = window.confirm("Would you like to include numeric characters?");
+  var ifupperCaseLetters = window.confirm("Would you like to include uppercase characters?");
+  var iflowerCaseLetters = window.confirm("Would you like to include lowercase characters?");
   console.log(iflowerCaseLetters);
   console.log(ifnumbers);
   console.log(ifspecialCharacter);
