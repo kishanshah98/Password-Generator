@@ -1,4 +1,3 @@
-// Assignment Code 
 var specialCharactersList = ['!', "\'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '`', '{', '|', '}', '~'];
 var numbersList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var upperCaseLettersList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -9,10 +8,10 @@ console.log(upperCaseLettersList);
 console.log(lowerCaseLettersList);
 
 function options() {
-  // Creation of Password length integer
+
   var passwordLength = parseInt(window.prompt("How many characters would you like your password to be?"));
   console.log(passwordLength);
-  // Storing whether or not the user wants the following in their password
+
   var ifspecialCharacters = window.confirm("Would you like to include special characters?");
   var ifnumbers = window.confirm("Would you like to include numeric characters?");
   var ifupperCaseLetters = window.confirm("Would you like to include uppercase characters?");
@@ -23,7 +22,6 @@ function options() {
   console.log(ifupperCaseLetters);
   console.log(iflowerCaseLetters);
 
-  // Creation of object with stored elements
   var userInput = {
     passLength: passwordLength,
     specialChar: ifspecialCharacters,
@@ -32,25 +30,21 @@ function options() {
     lowerCase: iflowerCaseLetters,
   };
 
-  console.log(userInput);
-  // Returns object to the caller
   return userInput;
 }
 
 var generateBtn = document.querySelector("#generate");
-// Create function generatePassword
+
 function generatePassword() {
   var choices = options();
 
-  if (!choices) {
-      return;
+  if (!choices.passLength) {
+    return;
   }
 
   var charsConcat = [];
+  var charsGuarantee = [];
   var charsPassword = [];
-
-  console.log(charsConcat);
-  console.log(charsPassword);
 
   if (choices.specialChar) {
     charsConcat = charsConcat.concat(specialCharactersList);
@@ -64,30 +58,26 @@ function generatePassword() {
   if (choices.lowerCase) {
     charsConcat = charsConcat.concat(lowerCaseLettersList);
   }
-  console.log(charsConcat);
-  console.log(charsConcat.length);
-  console.log(choices.passLength);
 
   for (var i = 0; i < choices.passLength; i++) {
     var randomNum = Math.floor(Math.random() * charsConcat.length);
-    charsPassword = charsConcat[randomNum];
+    charsPassword += charsConcat[randomNum];
   }
- //*** troubleshoot this ***  console.log(charsPassword);
-  // return aPassString; // "fsajdfhsakdjfs"
+
+  // for (var i = 0; i <  ; i++)
+  //  var randomNum = Math.floor(Math.random() * )
+
+  // use #11 in JS learning as reference
+  // use 19,20 in JS as reference too
+
+  return(charsPassword);
 };
 
-generatePassword();
-
-
-
-// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
