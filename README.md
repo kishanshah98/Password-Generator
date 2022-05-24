@@ -5,3 +5,7 @@ Password Generator is an application that allows users to select criteria includ
 ## Screenshot
 
 ![Screenshot](./Assets/password-generator.png)
+
+## Deploy Link
+
+[Deployed link](https://kishanshah98.github.io/Password-Generator/)
